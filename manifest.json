@@ -1,0 +1,18 @@
+
+{
+  "name": "柳老师公文小助手",
+  "short_name": "公文助手",
+  "description": "专业 AI 公文生成与排版工具",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#dc2626",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/281/281760.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

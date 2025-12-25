@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI 公文生成器 - 符合GB/T 9704-2012标准</title>
+    <title>柳老师公文小助手 - 专业 AI 公文排版</title>
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#dc2626">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -16,15 +16,37 @@
             body { background: white !important; }
         }
         
-        /* GB/T 9704-2012 Font Specs */
-        .font-official-title { font-family: "方正小标宋简体", "SimSun-ExtB", "SimSun", "STSong", serif; font-weight: bold; }
-        .font-official-h1 { font-family: "SimHei", "Microsoft YaHei", sans-serif; font-weight: bold; }
-        .font-official-h2 { font-family: "KaiTi", "STKaiti", serif; }
-        .font-official-body { font-family: "FangSong", "STFangsong", "SimSun", serif; }
+        /* GB/T 9704-2012 标准字体 fallback 链 */
+        /* 1. 标题：二号小标宋 */
+        .font-official-title { 
+            font-family: "方正小标宋简体", "FZXiaoBiaoSong-B05S", "FZXiaoBiaoSong-B05", "Microsoft Songti", "SimSun-ExtB", serif; 
+            font-weight: bold; 
+        }
+        /* 2. 一级标题：三号黑体 */
+        .font-official-h1 { 
+            font-family: "SimHei", "Microsoft YaHei", "Heiti SC", "Heiti TC", sans-serif; 
+            font-weight: bold; 
+        }
+        /* 3. 二级标题：三号楷体 */
+        .font-official-h2 { 
+            font-family: "KaiTi", "STKaiti", "Kaiti SC", "Kaiti TC", serif; 
+        }
+        /* 4. 正文：三号仿宋 */
+        .font-official-body { 
+            font-family: "FangSong", "STFangsong", "仿宋", "SimSun", serif; 
+        }
         
         .custom-scrollbar::-webkit-scrollbar { width: 6px; }
         .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.1); border-radius: 10px; }
+
+        /* 模拟公文纸张质感 */
+        .print-area {
+            position: relative;
+            background-image: 
+                linear-gradient(rgba(220, 38, 38, 0.05) 1px, transparent 1px);
+            background-size: 100% 28pt; /* 对应 28pt 行高 */
+        }
     </style>
 <script type="importmap">
 {
@@ -39,7 +61,7 @@
 }
 </script>
 </head>
-<body class="bg-slate-50 min-h-screen">
+<body class="bg-slate-50 min-h-screen selection:bg-red-100 selection:text-red-900">
     <div id="root"></div>
     <script>
       if ('serviceWorker' in navigator) {

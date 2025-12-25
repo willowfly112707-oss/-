@@ -1,5 +1,6 @@
 {
   "name": "柳老师公文小助手",
-  "description": "A professional tool for generating formal Chinese official documents (公文) with automatic formatting and layout according to standard guidelines.",
+  "short_name": "公文助手",
+  "description": "专业 AI 公文生成与排版工具，严格遵循 GB/T 9704-2012 标准，支持 Word 导出与一键安装到桌面。",
   "requestFramePermissions": []
 }
